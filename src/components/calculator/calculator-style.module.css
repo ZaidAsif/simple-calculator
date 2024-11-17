@@ -1,0 +1,150 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+.button {
+    flex: 1 1 22%; 
+    padding: 20px;
+    font-size: 1.5rem;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+}
+
+.button:hover {
+    background-color: #d1cbcb;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
+
+.button:active {
+    background-color: #999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+  }
+
+.buttonOperator {
+    flex: 1 1 22%; 
+    padding: 20px;
+    font-size: 1.5rem;
+    background-color: #fc8e00;
+    border: 1px solid #fc8e00;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+}
+
+.buttonOperator:hover {
+    background-color: #ff7b00;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+.buttonOperator:active {
+    background-color: #ff7100ed;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+}
+
+.buttonClear {
+    flex: 1 1 22%; 
+    padding: 20px;
+    font-size: 1.5rem;
+    background-color: #b7aaaa;
+    border: 1px solid #b7aaaa;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+}
+
+.buttonClear:hover {
+    background-color: #9d9191;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+.buttonClear:active {
+    background-color: #847979;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+}
+
+
+@media (max-width: 550px) {
+    .calculator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: black;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    
+      .display {
+        font-size: 1.8rem;
+        height: 90px;
+      }
+    
+      .buttons {
+        flex-wrap: wrap;  
+      }
+    
+      .button {
+        flex: 1 1 15%;  
+        padding: 15px;
+        font-size: 1.4rem;
+      }
+
+      .buttonOperator {
+        flex: 1 1 15%;  
+        padding: 15px;
+        font-size: 1.4rem;
+      }
+
+      .buttonClear {
+        flex: 1 1 15%;  
+        padding: 15px;
+        font-size: 1.4rem;
+      }
+}
+
+@keyframes vanish {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.display.vanish {
+    animation: vanish 0.5s forwards; 
+}
+
+.display.reset {
+    opacity: 1;
+    transform: scale(1);
+}
+
