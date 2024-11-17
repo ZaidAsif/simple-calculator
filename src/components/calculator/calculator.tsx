@@ -27,7 +27,11 @@ export default function Calculator() {
         }
         else if (value === '=') {
             const result = makeCalculations(parseFloat(prevInput), operator, parseFloat(currentInput));
-            setCurrentInput(result);
+            if (typeof result === 'number') {
+                setCurrentInput(result.toString());
+            } else {
+                setCurrentInput('Error'); 
+            }
             setPrevInput('')
             setOperator('')
         }
