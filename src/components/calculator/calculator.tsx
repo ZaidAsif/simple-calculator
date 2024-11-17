@@ -93,8 +93,8 @@ export default function Calculator() {
 
 
     return (
-        <div className='flex flex-col items-center w-3/5 p-5 bg-black rounded-3xl shadow-2xl mt-20 max-w-screen-sm' id="calculator">
-            <input type="text" value={error? 'error' : currentInput} className={`w-full h-14 text-4xl text-white text-right rounded-2xl font-mono ${styles.display} ${isClearing ? styles.vanish : ''}`} style={{ background: '#333'}} readOnly/>
+        <div className={`${styles.calculator}`} id="calculator">
+            <input type="text" value={error? 'error' : currentInput} className={`w-full h-16 text-4xl text-white text-right rounded-2xl font-mono ${styles.display} ${isClearing ? styles.vanish : ''}`} style={{ background: '#333'}} readOnly/>
 
             <div className="flex flex-wrap justify-center w-full">
                 <button className={styles.button} onClick={() => giveOutput('7')}>7</button>
