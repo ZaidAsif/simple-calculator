@@ -27,7 +27,7 @@ export default function Calculator() {
         }
         else if (value === '=') {
             const result = makeCalculations(parseFloat(prevInput), operator, parseFloat(currentInput));
-            setCurrentInput(result.toString());
+            setCurrentInput(result);
             setPrevInput('')
             setOperator('')
         }
