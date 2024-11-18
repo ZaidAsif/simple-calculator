@@ -7,8 +7,8 @@ export default function Calculator() {
     const [prevInput, setPrevInput] = useState<string>('');
     const [currentInput, setCurrentInput] = useState<string>('');
     const [operator, setOperator] = useState('');
-    const [error, setError] = useState(false);
     const [isClearing, setIsClearing] = useState(false);
+    const [error, setError] = useState(false);
 
     const handleClear = () => {
         setIsClearing(true);
@@ -25,6 +25,10 @@ export default function Calculator() {
         if (value === 'c') {
             handleClear();
         } else if (value === '=') {
+            if (operator === '/' && parseFloat(currentInput) === 0) {
+                setError(true)
+            }
+            else {
             const result = makeCalculations(parseFloat(prevInput), operator, parseFloat(currentInput));
             if (typeof result === 'number') {
                 setCurrentInput(result.toString());
@@ -33,6 +37,7 @@ export default function Calculator() {
             }
             setPrevInput('');
             setOperator('');
+        }
         } else if (['+', '-', '*', '/', '^'].includes(value)) {
             setPrevInput(currentInput);
             setCurrentInput('');
@@ -41,8 +46,16 @@ export default function Calculator() {
             const result = parseFloat(currentInput) / 100;
             setCurrentInput(result.toString());
         } else if (value === '√') {
-            const result = Math.sqrt(parseFloat(currentInput));
+            const num = parseFloat(currentInput)
+            if (num < 0) {
+                setError(true)
+                setCurrentInput('');
+
+            }
+            else {
+            const result = Math.sqrt(num);
             setCurrentInput(result.toString());
+            }
         } else {
             setCurrentInput(currentInput + value);
         }
@@ -53,7 +66,7 @@ export default function Calculator() {
             case '+': return prevNum + currNum;
             case '-': return prevNum - currNum;
             case '*': return prevNum * currNum;
-            case '/': return currNum === 0 ? setError(true) : prevNum / currNum;
+            case '/': return currNum === 0 ? ''  : prevNum / currNum;
             case '^': return Math.pow(prevNum, currNum);
             default: return currNum;
         }
@@ -82,6 +95,15 @@ export default function Calculator() {
             window.removeEventListener('keydown', handleKeyDown);
         };
     }, [currentInput, prevInput, operator, error]);
+
+    useEffect(() => {
+        if (error) {
+            const clearTimer = setTimeout(() => {
+                setError(false);
+            }, 3000);
+        }
+
+    }, [error]);
 
     return (
         <div className={`${styles.calculator}`} id="calculator">

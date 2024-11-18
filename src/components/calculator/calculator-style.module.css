@@ -45,12 +45,14 @@
     background-color: #d1cbcb;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-4px);
+    
 }
 
 .button:active, .buttonOperator:active, .buttonClear:active {
     background-color: #999;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transform: translateY(0);
+    transform: scale(0.95);
 }
 
 .buttonOperator {
