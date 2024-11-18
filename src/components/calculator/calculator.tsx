@@ -98,7 +98,7 @@ export default function Calculator() {
 
     useEffect(() => {
         if (error) {
-            const clearTimer = setTimeout(() => {
+            setTimeout(() => {
                 setError(false);
             }, 3000);
         }
